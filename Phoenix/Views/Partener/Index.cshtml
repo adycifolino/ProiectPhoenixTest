@@ -1,0 +1,36 @@
+﻿@model List<Phoenix.Models.PartenerModel>
+
+@{
+    ViewData["Title"] = "Lista Parteneri";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-3">📋 Lista Parteneri</h2>
+
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-info">Nu există parteneri în baza de date.</div>
+    }
+    else
+    {
+        <a class="btn btn-primary mb-3" asp-controller="Partener" asp-action="Create">
+            ➕ Adaugă Partener
+        </a>       
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>                
+                    <th>Denumire</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+  
+                    <td>@p.Denumire</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>
